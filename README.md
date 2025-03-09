@@ -24,7 +24,7 @@ Ensure Python is installed. Download from [Python's official website](https://ww
 ### Steps to Run the Project  
 1️⃣ **Clone the repository:**  
    ```
-   git clone https://github.com/your-username/todo-list-flask.git
+   git clone https://github.com/Poorna2635/TODOLIST.git
    cd todo-list-flask 
 ```
 2️⃣ **Create a virtual environment:**  
