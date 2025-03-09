@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}HOME{% endblock title %}
+{% block body %}
+      <div class="container my-4">
+        <h2>Your todos</h2>
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="title" >TODO</label>
+              <label for="exampleInputEmail1">TITLE</label>
+              <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">DESCRIPTION</label>
+              <input type="text" class="form-control" name="desc" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-dark my-1">Submit</button>
+          </form>
+      </div>
+<div class="table my-4 container">
+         <h2>Your Todos</h2>
+            {% if allTodo|length ==0 %}
+                 
+            <div class="alert alert-dark" role="alert">
+                Add Your Todos Right now!
+              </div>   
+                {% else %}
+            {% for todo in allTodo %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">sno</th>
+                    <th scope="col">title</th>
+                    <th scope="col">description</th>
+                    <th scope="col">Time</th>
+                    <th scope="col"> Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+             <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{todo.title}}</td>
+            <td>{{todo.desc}}</td>
+            <td>{{todo.date_created}}</td>
+            <td>
+            <a href="/update/{{todo.sno}}"><button type="button" class="btn btn-info btn-sm mx-1">Update</button></a>
+            <a href="/delete/{{todo.sno}}"><button type="button" class="btn btn-danger btn-sm mx-1">Delete</button></a>
+            </td>
+        </tr>  
+      </tbody>
+      </table>  
+            {% endfor %}
+            {% endif %}
+      
+</div>
+{% endblock body %}
