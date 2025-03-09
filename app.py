@@ -57,7 +57,11 @@ def update(sno):
         return redirect("/") 
     todo=Todo.query.filter_by(sno=sno).first()
     return render_template('update.html',todo=todo) 
-  
+
+@app.route("/aboutus")
+def aboutus():
+    return render_template("aboutus.html")
+ 
          
 
 if __name__ =="__main__":
